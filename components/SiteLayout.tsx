@@ -26,7 +26,6 @@ import {
 } from "react-icons/md";
 import store from "../data/store.json";
 import users from "../data/users.json";
-import ExternalLink from "../utils/ExternalLink";
 import { User } from "../utils/types";
 
 type LinkProps = {
@@ -49,14 +48,14 @@ const DrawerInternalLink = ({ to, icon, title, className }: LinkProps) => (
   </Link>
 );
 
-const DrawerExternalLink = ({ to, icon, title, className }: LinkProps) => (
-  <ExternalLink to={to}>
-    <ListItem className={className}>
-      <ListIcon as={icon} />
-      {title}
-    </ListItem>
-  </ExternalLink>
-);
+// const DrawerExternalLink = ({ to, icon, title, className }: LinkProps) => (
+//   <ExternalLink to={to}>
+//     <ListItem className={className}>
+//       <ListIcon as={icon} />
+//       {title}
+//     </ListItem>
+//   </ExternalLink>
+// );
 
 interface SiteLayoutProps {
   children: JSX.Element | JSX.Element[];

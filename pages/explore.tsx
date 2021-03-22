@@ -24,7 +24,7 @@ function OnInputKeyDown(event: React.KeyboardEventHandler<HTMLInputElement>) {}
 export default function Explore() {
   const router: NextRouter = useRouter();
   const query: ParsedUrlQuery = router.query;
-  const search: string = query.search;
+  // const search: string = query.search;
   const { theme } = useTheme();
 
   return (

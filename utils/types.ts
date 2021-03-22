@@ -1,6 +1,10 @@
 /**
  * Social Links, each and all are optional
  */
+export interface Hash<T> {
+  [key: string]: T;
+}
+
 interface SocialLinks {
   twitter?: string;
   twitch?: string;

@@ -4,7 +4,7 @@ import React from "react";
 type ExternalLinkProps = {
   to: string;
   children: any;
-  tooltip: any;
+  tooltip?: any;
   className?: string;
 };
 
