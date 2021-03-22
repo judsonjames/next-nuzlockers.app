@@ -11,20 +11,13 @@ import {
   useTheme,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { NextRouter, useRouter } from "next/router";
-import { ParsedUrlQuery } from "querystring";
 import React from "react";
 import { MdArrowForward, MdSearch } from "react-icons/md";
 import SiteLayout from "../components/SiteLayout";
 import users from "../data/users.json";
 import ExternalLink from "../utils/ExternalLink";
 
-function OnInputKeyDown(event: React.KeyboardEventHandler<HTMLInputElement>) {}
-
 export default function Explore() {
-  const router: NextRouter = useRouter();
-  const query: ParsedUrlQuery = router.query;
-  // const search: string = query.search;
   const { theme } = useTheme();
 
   return (
