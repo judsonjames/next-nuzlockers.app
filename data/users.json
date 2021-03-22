@@ -1,0 +1,14 @@
+{
+  "banangineer": {
+    "name": "Banangineer",
+    "username": "Banangineer",
+    "colorTheme": "blue.700",
+    "profilePic": "https://pbs.twimg.com/profile_images/1234867903603912705/RTbnzSen_400x400.jpg",
+    "bannerPic": "https://pbs.twimg.com/profile_banners/1234867627731947520/1590598438/1500x500",
+    "social": {
+      "twitter": "https://twitter.com/Banangineer",
+      "twitch": "https://twitch.tv/Banangineer",
+      "website": "https://banangineer.com"
+    }
+  }
+}
