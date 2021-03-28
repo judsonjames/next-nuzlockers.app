@@ -7,7 +7,7 @@ export default function Home() {
     <SiteLayout>
       <main>
         <Heading className={"text-center underline py-4"}>
-          nuzlockers.app
+          nuzlocker.app
         </Heading>
         <Text className={"text-center"}>
           Where Nuzlockers come to share their Pain and Glory

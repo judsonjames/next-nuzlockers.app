@@ -20,6 +20,7 @@ import React from "react";
 import {
   MdCollectionsBookmark,
   MdExplore,
+  MdGames,
   MdHome,
   MdMenu,
   MdSettings,
@@ -137,6 +138,12 @@ const SiteLayout = (props: SiteLayoutProps): JSX.Element => {
                   to={"/resources"}
                   icon={MdCollectionsBookmark}
                   title={"Resources"}
+                  className={"my-2 text-gray-800 dark:text-gray-100"}
+                />
+                <DrawerInternalLink
+                  to={"/tracker"}
+                  icon={MdGames}
+                  title={"Tracker"}
                   className={"my-2 text-gray-800 dark:text-gray-100"}
                 />
                 <DrawerInternalLink
