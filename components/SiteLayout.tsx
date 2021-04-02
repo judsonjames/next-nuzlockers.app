@@ -162,29 +162,41 @@ const SiteLayout = (props: SiteLayoutProps): JSX.Element => {
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
-      <Box
-        className={"bg-gray-200 dark:bg-gray-800 text-black dark:text-white"}>
-        <Box
-          id={"main-screen-content"}
-          className={"max-w-screen-2xl m-auto relative"}>
-          <Box id={"menu-button"} className={"absolute top-5 right-5 z-50"}>
-            <IconButton
-              icon={<MdMenu />}
-              aria-label={"Open Menu"}
-              onClick={onOpen}
-              ref={btnRef}
-              bg={user.colorTheme}
-              color={"white"}
-              // _hover={{ bg: "yellow.400", color: "black" }}
-              // _active={{ bg: "yellow.500" }}
-              // className={
-              //   "bg-gray-800 dark:bg-gray-100 text-gray-800 dark:text-gray-800"
-              // }
-            />
+      <div id={"background"} className={"bg-gray-100 dark:bg-gray-700"}>
+        <div id={"app"} className={"max-w-screen-2xl m-auto relative"}>
+          <div
+            id={"app-banner"}
+            className={"sticky top-0 w-full h-12 sm:h-16 bg-gray-200"}>
+            <p className={"text-xl sm:text-2xl h-full"}>nuzlocker.app</p>
+            <div className={"top-1 sm:top-3 right-1 sm:right-3 absolute z-50"}>
+              <IconButton
+                icon={<MdMenu />}
+                aria-label={"Open Menu"}
+                onClick={onOpen}
+                ref={btnRef}
+                bg={user.colorTheme}
+                color={"white"}
+                className={"w-1 h-1"}
+                // height={10}
+                // width={5}
+                // _hover={{ bg: "yellow.400", color: "black" }}
+                // _active={{ bg: "yellow.500" }}
+                // className={
+                //   "bg-gray-800 dark:bg-gray-100 text-gray-800 dark:text-gray-800"
+                // }
+              />
+            </div>
+          </div>
+          <Box
+            className={
+              "bg-gray-200 dark:bg-gray-800 text-black dark:text-white "
+            }>
+            <Box className={"bg-yellow-main min-h-screen"}>
+              {props.children}
+            </Box>
           </Box>
-          <Box className={"bg-yellow-main min-h-screen"}>{props.children}</Box>
-        </Box>
-      </Box>
+        </div>
+      </div>
     </div>
   );
 };
