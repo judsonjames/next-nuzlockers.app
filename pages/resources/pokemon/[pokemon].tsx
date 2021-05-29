@@ -1,34 +1,36 @@
 import { Text } from "@chakra-ui/react";
-import { GetServerSideProps } from "next";
+import axios, { AxiosResponse } from "axios";
 import React from "react";
-import { QueryClient, useQuery } from "react-query";
-import { dehydrate } from "react-query/hydration";
 import { getPokemon } from "../../../apis/pokeapi";
+import PokemonEntry from "../../../apis/pokeapi/types/pokemon";
 import SiteLayout from "../../../components/SiteLayout";
+import { GenerateStaticPaths } from "../../../utils/generators";
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const pokemon: string = context.params.pokemon as string;
-  const queryClient: QueryClient = new QueryClient();
-  await queryClient.prefetchQuery("pokemon", () => getPokemon(pokemon));
+export async function getStaticPaths() {
+  const response: AxiosResponse = await axios.get(
+    "https://pokeapi.co/api/v2/pokemon/?limit=10000"
+  );
+  return GenerateStaticPaths(response, "pokemon");
+}
 
+export async function getStaticProps({ params }) {
+  const name: string = params.pokemon;
+  const pokemon: PokemonEntry = await getPokemon(name);
   return {
     props: {
       pokemon,
-      dehydratedState: dehydrate(queryClient),
     },
   };
-};
+}
 
-export default function Ability(props) {
+export default function Pokemon(props) {
   const { pokemon } = props;
-  const { data } = useQuery("pokemon", () => getPokemon(pokemon));
-
-  const imageUrl = data.sprites.front_default;
+  // const imageUrl = pokemon.sprites.front_default;
 
   return (
     <SiteLayout>
-      <Text>Pokemon :: {data.name}</Text>
-      <img src={imageUrl} />
+      <Text>Pokemon :: {pokemon.name}</Text>
+      {/* <img src={imageUrl} /> */}
     </SiteLayout>
   );
 }

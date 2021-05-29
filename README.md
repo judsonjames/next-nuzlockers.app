@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# nuzlocker.app
+
+This is a side project designed to be a [Pokémon Nuzlocke](https://bulbapedia.bulbagarden.net/wiki/Nuzlocke_Challenge) Tracker for people who enjoy Pokémon but want to remember their progress.
+
+Ideally this will become a tool useful for people who stream on Twitch.tv and play Pokémon Nuzlockes and want to have their audience know what happened to their favorite meme, or be a way for people to track their journeys.
+
+This repo is only the Frontend aspect of it. This is a work in progress as well as a sandbox for new technologies.
+
+## Tech Stack
+
+- Next.js
+  - Used for the UI as well as caching serverside progress.
+  - Both SSR and SSG will be used
+    - SSG will be used to supply the Pokédex/Bulbapedia reference by using the [Pokémon OpenAPI](https://pokeapi.co/)
+    - SSR will be used for SEO and prefilling data that can be easily templated (user profiles, runs, etc)
+- UI/UX
+  - Tailwind CSS is used to quickly build UI in the shortterm and to provide easy Dark Theme
+  - Chakra UI is used for the "Functional" components such as menus, action components, etc
+  - Some custom components are developed on an as-needed basis
+- Hosting
+  - In the short term, this project is being hosted with [Netlify](https://netlify.com)
+  - In the long term, this will either be hosted with Vercel, or AWS Elastic Beanstalk or Amplify
+- Backend
+  - Aside from the data publicly available with the Pokémon OpenAPI, user data and services are going to be developed at a later date.
+  - Not sure when this will happen, but will likely be built using either TypeScript + Express to keep consistent with the TypeScript frontend.
 
 ## Getting Started
 
-First, run the development server:
+First, run the development server (note that I changed the default Next commands):
 
 ```bash
-npm run dev
+npm run start
 # or
-yarn dev
+yarn start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

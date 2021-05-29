@@ -1,31 +1,34 @@
 import { Text } from "@chakra-ui/react";
-import { GetServerSideProps } from "next";
+import axios, { AxiosResponse } from "axios";
 import React from "react";
-import { QueryClient, useQuery } from "react-query";
-import { dehydrate } from "react-query/hydration";
 import { getLocations } from "../../../apis/pokeapi";
+import LocationType from "../../../apis/pokeapi/types/location";
 import SiteLayout from "../../../components/SiteLayout";
+import { GenerateStaticPaths } from "../../../utils/generators";
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const location: string = context.params.location as string;
-  const queryClient: QueryClient = new QueryClient();
-  await queryClient.prefetchQuery("location", () => getLocations(location));
+export async function getStaticPaths() {
+  const response: AxiosResponse = await axios.get(
+    "https://pokeapi.co/api/v2/location/?limit=1000"
+  );
+  return GenerateStaticPaths(response, "location");
+}
 
+export async function getStaticProps({ params }) {
+  const name: string = params.location;
+  const location: LocationType = await getLocations(name);
   return {
     props: {
       location,
-      dehydratedState: dehydrate(queryClient),
     },
   };
-};
+}
 
-export default function Ability(props) {
+export default function Location(props) {
   const { location } = props;
-  const { data } = useQuery("location", () => getLocations(location));
 
   return (
     <SiteLayout>
-      <Text>location :: {data.name}</Text>
+      <Text>location :: {location.name}</Text>
     </SiteLayout>
   );
 }

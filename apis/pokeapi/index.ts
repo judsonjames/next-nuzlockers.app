@@ -7,6 +7,10 @@ import Region from "./types/region";
 
 const pokeapiURL: string = "https://pokeapi.co/api/v2/";
 
+/**
+ * This will likely be rewritten with HTTP Resources, Axios is just a start
+ */
+
 export const getAbility = async (ability: string): Promise<Ability> => {
   const { data } = await axios.get(`${pokeapiURL}/ability/${ability}`);
   return data;
